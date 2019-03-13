@@ -30,8 +30,7 @@ function resetGame() {
     player1 = [];
     player2 = [];
     current_player = 0;
-    $("#dev").html("If you want to play again you must open the dev tools.");
-
+    
 
 }
 // anonymous function so when the button is clicked the game will restart
@@ -65,8 +64,11 @@ $(".square").on("click", function () { //when click on any zone1
                 changePlayer()
             }
         }
-        if (player1.length == 4) {
-            console.log("hi")
+        if (player1.length == 4) { // cannot play more than three plays 
+            swal({
+                title: "Its an Equal game !",
+                icon: "info",
+            });
             resetGame();
         }
 
@@ -91,17 +93,11 @@ $(".square").on("click", function () { //when click on any zone1
 
 function checkWhoWins(player1, player2) {
     for (var i = 0; i < winCombo.length; i++) {
-
-
-        if (player1.sort().join('') == winCombo[i].join('')) {
-
+if (player1.sort().join('') == winCombo[i].join('')) {
             whoWins = true;
             if (whoWins == true) {
                 player1Score++
                 $("#player1").html(player1Score)
-
-
-                console.log(player1Score);
             }
             swal({
                 title: "EXCELLENT X WON !",
