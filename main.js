@@ -1,4 +1,3 @@
-
 //Store Player moves
 let player1 = [];
 let player2 = [];
@@ -36,19 +35,23 @@ let winCombo = [
 
 // }
 function resetGame (){
-    $(".square").each( function(){
-            $(this).removeAttr("style");
-            console.log(this)
+    $(".square").attr("style", "undefined")
+    $(".square").removeAttr("style");
+
+    // $(".square").each( function(){
+    //         $(this).removeAttr("style");
+    //         console.log(this)
         whoWins = false
         player1 =[];
         player2 =[];
         current_player = 0;
-    });
+        $("#dev").html("If you want to play again you must open the dev tools.");
+
+    // });
 
 }
-$("button").on("click", function(){
-
-    resetGame();
+$("#btn").on("click", function(){
+     resetGame ()
 })
 
 
@@ -144,4 +147,3 @@ function checkWhoWins (player1,player2){
             }
             
             // }
-            
